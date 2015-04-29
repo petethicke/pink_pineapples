@@ -12,7 +12,10 @@
     <%= f.label "email" %><br>
     <%= f.text_field "email" %>
   </div>
-
+  <div>
+    <%= f.check_box :admin %>
+    <%= f.label "Admin?" %>
+  </div>
   <div>
     <%= f.submit "Submit" %> 
   </div>
