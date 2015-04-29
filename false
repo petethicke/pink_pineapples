@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20150429000803_fix_admin_to_users.rb
