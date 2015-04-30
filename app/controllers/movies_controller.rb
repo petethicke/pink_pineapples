@@ -39,9 +39,6 @@ class MoviesController < ApplicationController
     @movies = Movie.search(params)
   end
 
-  def runtime_converter
-
-  end
 
   def destroy
     @movie = Movie.find(params[:id])

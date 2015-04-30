@@ -34,17 +34,11 @@ class Movie < ActiveRecord::Base
       result = result.where("director like ?", params[:director])
     end
 
-    # if params[:runtime].present?
-    #   #
-    # end
-
+    if params[:runtime_in_minutes] != '0'
+      runtime_length = convert_numbers(params[:runtime_in_minutes])
+      result = result.where(:runtime_in_minutes => runtime_length)
+    end  
     result
-
-    # if params != nil
-    #   Movie.where("params like ?", "%#{params}%")
-    # else
-    #   Movie.all
-    # end
   end
 
   def review_average
@@ -52,6 +46,18 @@ class Movie < ActiveRecord::Base
       reviews.sum(:rating_out_of_ten)/reviews.size
     end
   end
+
+  def self.convert_numbers(length_key)
+    case length_key
+    when '1'
+      0..90
+    when '2'
+      90..120
+    else
+      120..999
+    end
+  end
+
 
   protected
 
