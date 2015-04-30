@@ -23,6 +23,15 @@ class Movie < ActiveRecord::Base
 
   # validate :release_date_is_in_the_future
 
+  def self.search(search)
+    puts search
+    if search != nil
+      Movie.where("title like ?", "%#{search}%")
+    else
+      Movie.all
+    end
+  end
+
   def review_average
     if !reviews.empty?
       reviews.sum(:rating_out_of_ten)/reviews.size
