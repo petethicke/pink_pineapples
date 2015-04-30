@@ -36,9 +36,11 @@ class MoviesController < ApplicationController
   end
 
   def search
-    puts 'searching...'
-    puts params
-    @movies = Movie.search(params[:title])
+    @movies = Movie.search(params)
+  end
+
+  def runtime_converter
+
   end
 
   def destroy

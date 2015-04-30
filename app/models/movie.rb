@@ -23,13 +23,28 @@ class Movie < ActiveRecord::Base
 
   # validate :release_date_is_in_the_future
 
-  def self.search(search)
-    puts search
-    if search != nil
-      Movie.where("title like ?", "%#{search}%")
-    else
-      Movie.all
+  def self.search(params)
+    result = Movie.all
+
+    if params[:title].present?
+      result = result.where("title like ?", params[:title])
     end
+
+    if params[:director].present?
+      result = result.where("director like ?", params[:director])
+    end
+
+    # if params[:runtime].present?
+    #   #
+    # end
+
+    result
+
+    # if params != nil
+    #   Movie.where("params like ?", "%#{params}%")
+    # else
+    #   Movie.all
+    # end
   end
 
   def review_average
