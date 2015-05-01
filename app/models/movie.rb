@@ -1,4 +1,8 @@
 class Movie < ActiveRecord::Base
+  scope :search, -> (params) { where("title like ? OR director like ? ", "%#{title}%", "%#{director}%") }
+  # binding.
+  # scope :search, -> (director) { where("director like ?", director) }
+  # scope :search, -> (runtime_in_minutes) { where(runtime_in_minutes => self.runtime_length)}
 
   has_many :reviews
   mount_uploader :image, ImageUploader
@@ -23,23 +27,23 @@ class Movie < ActiveRecord::Base
 
   # validate :release_date_is_in_the_future
 
-  def self.search(params)
-    result = Movie.all
+  # def self.search(params)
+  #   result = Movie.all
 
-    if params[:title].present?
-      result = result.where("title like ?", params[:title])
-    end
+  #   if params[:title].present?
+  #     result = result.where("title like ?", params[:title])
+  #   end
 
-    if params[:director].present?
-      result = result.where("director like ?", params[:director])
-    end
+  #   if params[:director].present?
+  #     result = result.where("director like ?", params[:director])
+  #   end
 
-    if params[:runtime_in_minutes] != '0'
-      runtime_length = convert_numbers(params[:runtime_in_minutes])
-      result = result.where(:runtime_in_minutes => runtime_length)
-    end  
-    result
-  end
+  #   if params[:runtime_in_minutes] != '0'
+  #     runtime_length = convert_numbers(params[:runtime_in_minutes])
+  #     result = result.where(:runtime_in_minutes => runtime_length)
+  #   end  
+  #   result
+  # end
 
   def review_average
     if !reviews.empty?
