@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  scope :search, -> (params) { where("title like ? OR director like ? ", "%#{title}%", "%#{director}%") }
+  scope :search, -> (params) { where("title like ? OR director like ? ", "%#{params}%", "%#{params}%") }
   # binding.
   # scope :search, -> (director) { where("director like ?", director) }
   # scope :search, -> (runtime_in_minutes) { where(runtime_in_minutes => self.runtime_length)}
