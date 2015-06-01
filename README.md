@@ -1,3 +1,5 @@
 == README
+Lighthouse Labs Assignment - 
+Rotten Tomatoes clone built to learn the basics of Rails and bootstrap.
 
-Rotten Tomatoes clone built to learn the basics of Rails
+bin/rails s and localhost:3000
