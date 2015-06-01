@@ -1,3 +1,41 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #e6e6e6;
+}
+
+footer {
+  text-align: center;
+  margin: 10x;
+}
+
+#main {
+  background-color: #fff;
+  width: 60%;
+  height: 80%;
+  margin: 0 auto;
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+  }
+}
+
