@@ -1,5 +1,6 @@
-<%= link_to "Back to all movies", movies_path %><br/>
-<% @movies.each do |movie| %>
+<div class='main'>
+  <%= link_to "Back to all movies", movies_path %><br/>
+  <% @movies.each do |movie| %>
   <hr>
   <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
   <%= link_to image_tag(movie.image.url.to_s), movie_path(movie) %> 
@@ -7,5 +8,6 @@
   <h3><%= formatted_date(movie.release_date) %></h3>
   <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
   <p><%= movie.description %></p>
-   <hr>
-<% end %>
+  <hr>
+  <% end %>
+</div>

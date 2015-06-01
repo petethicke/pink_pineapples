@@ -1,5 +1,6 @@
-<%= link_to "Back Admin Panel", admin_users_path %> 
-<%= form_for(@admin_user, url: admin_user_path(@admin_user)) do |f| %>
+<div class="main">
+  <%= link_to "Back Admin Panel", admin_users_path %> 
+  <%= form_for(@admin_user, url: admin_user_path(@admin_user)) do |f| %>
   <div>
     <%= f.label "firstname" %><br>
     <%= f.text_field "firstname" %>
@@ -19,4 +20,5 @@
   <div>
     <%= f.submit "Submit" %> 
   </div>
-<% end %>
+  <% end %>
+</div>
